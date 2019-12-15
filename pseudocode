@@ -1,0 +1,20 @@
+The psycic game
+guess what letter I am thinking of
+
+
+- computer randonly generates letter
+- user given 10 guesses
+- user guesses a letter
+- if true,   
+            the win is added to the "Wins" row 
+            "Your Guesses so far" clears
+
+
+- if false, 
+            "Guesses Left" decreases by 1
+            letter is placed in "Your Guesses so far"
+
+
+- if false and out of guess,
+            "Losses" increases by one
+            "Your Guesses so far" clears
