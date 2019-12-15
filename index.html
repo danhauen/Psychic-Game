@@ -13,7 +13,9 @@
         <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                   <h1 class="display-4">The Psychic Game</h1>
-                  <p class="lead">Guess what letter I'm thinking of.</p>You get 10 chances to get it correct</p>
+                  <p class="lead">Guess what letter I'm thinking of.</p>
+                  <br>
+                  <button type="button" class="btn btn-primary">PLAY</button>
                 </div>
               </div>
 
@@ -34,13 +36,13 @@
                         <span class="badge badge-primary badge-pill">0</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Guesses Left
+                        Guesses Remaining:
                         <span class="badge badge-primary badge-pill">10</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Your Guesses so far
-                                <span class="badge badge-primary badge-pill">1</span>
-                            </li>
+                        Your Guesses:  <span id="letter-guess"></span> 
+                        <span class="badge badge-primary badge-pill"></span>
+                        </li>
                     </ul>
                 </div>
                 </div> 
@@ -48,6 +50,6 @@
 
 
 
-
+                <script src="assets/javascript/game.js"></script>
   </body>
 </html>
