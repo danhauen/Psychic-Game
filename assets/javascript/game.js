@@ -5,31 +5,41 @@
   // Guessed letter 
   var letterGuess = document.getElementById("letter-guess")
   
-  //var wins =""
+  // wins++1
   
-  //var losses =""
+  // losses++1
   
   //var guess = event.key;
   
   //var guessesLeft = 10;
 
-  document.onkeyup = function(event) {
-      letterGuess.textContent = event.key.toLowerCase();
-    // Each time the user guesses a letter the guesses remaining goes down by 1.
+  $("button").click (function() {
+    console.log("play pressed");
+  });
+  
+  document.getElementById("button").addEventListener("click", function() {
+      // Random letter generator
+      
+      console.log("randomLetter");
+  }
+  
+  //document.onkeyup = function(event) {
+      //letterGuess.textContent = event.key.toLowerCase();{
+      // Each time the user guesses a letter the guesses remaining goes down by 1.
       //guessesLeft -=1;
-        }
+       // }
+    
     // If letter is correctly picked, run the following
-        if (letterGuess === "randomLetter") {
-            console.log("correct letter");
-            //reWriteStats();
-        }
+        //if (letterGuess === randomLetter) {
+          //  console.log("correct letter");
+            //clear and start over 
+
     // If letter is not picked, run the following functions/methods.
-        else if (letterGuess == "randomLetter");{
-            console.log("wrong!");
-        }
-        //else
-       
-        
+       // }else if (letterGuess == randomLetter);{
+         //   console.log("wrong!");
+          
+    //not a letter
+       // }
     
      
     
