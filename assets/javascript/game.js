@@ -1,15 +1,83 @@
-  // letter array
-  var letters = ['a',"b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  
+ 
+  // creates an array for computer choice
+  var computerChoices = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; 
+  // starts wins and losses at zero
+  var wins = 0;
+  var losses = 0;
+  // starts initial guess amount at 5
+  var guessesLeft= 5;
+
+  // Starts and resets game
+  $( "button" ).click(function() {
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    wins = 0;
+    losses = 0;
+    guessesLeft= 5;
+    console.log(computerGuess);
+  });
+
+  document.onkeyup = function(event) {
+
+    var userChoiceText = document.getElementById("userchoice-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var guessesText = document.getElementById("guessesLeft-text");
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    var userGuess = event.key;
+    
+    var resetGuesses = function () {
+           
+
+    }
+      
+
+    if (userGuess === computerGuess) {
+            wins++;
+            resetGuesses();
+
+        }
+           else if (guessesLeft == 0) {
+            losses++
+            resetGuesses();                      
+        }
+            console.log(guessesLeft);
+
+
+
+      userChoiceText.textContent = userGuess;
+      winsText.textContent =  wins;
+      lossesText.textContent =  losses;
+      guessesText.textContent =  guessesLeft;
+
+      }
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ // letter array
+  //var letters = ['a',"b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
   // Random letter generator
-  $("button").click (function randLetter(){
-    var randomLetter = [Math.floor(Math.random() * letters.length)];
-    console.log(randomLetter);
-    console.log("play pressed");
-  }); 
+  //function getItem(){
+    //document.getElementById("letterGuess").innerHTML = letters[Math.floor(Math.random() * letters.length)];
+    //console.log(randomLetter);
+    
+ // }); 
   
-  // Guessed letter 
-  var letterGuess = document.getElementById("letter-guess")
+  //$("button").click (
+   // console.log("play pressed");
+  //document.onkeyup = function(event) {
+    //letterGuess.textContent = event.key.toLowerCase();{
+    // Each time the user guesses a letter the guesses remaining goes down by 1.
+    //guessesLeft -=1;
+  //}
+  
+  //if (guessesLeft === -1) {
+    //alert("You Loose!");
+  //}
   
   // wins++1
   
@@ -17,18 +85,14 @@
   
   //var guess = event.key;
   
-  //var guessesLeft = 10;
+ 
 
   //document.getElementById("button").addEventListener("click", function() {
       // Random letter generator-reset stats
       
   //}
   
-  document.onkeyup = function(event) {
-      letterGuess.textContent = event.key.toLowerCase();{
-      // Each time the user guesses a letter the guesses remaining goes down by 1.
-      //guessesLeft -=1;
-  }
+  
     
     // If letter is correctly picked, run the following
         //if (letterGuess === randomLetter) {
@@ -44,4 +108,4 @@
     
      
     
-  }
+  //}
