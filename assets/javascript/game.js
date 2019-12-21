@@ -26,21 +26,29 @@
     var userGuess = event.key;
     
     var resetGuesses = function () {
-           
-
+        guessesLeft = 5;
     }
       
 
-    if (userGuess === computerGuess) {
+      if (userGuess === computerGuess) {
             wins++;
-            resetGuesses();
+        }
+      
+      else if (userGuess != computerGuess) {
+            guessesLeft--;
+                
+            if (guessesLeft=== 0)
+                  losses++;
+                  function MyFunction() {
+                    return (this);
+                  }
+
+                  
+
 
         }
-           else if (guessesLeft == 0) {
-            losses++
-            resetGuesses();                      
-        }
-            console.log(guessesLeft);
+                      
+           console.log(guessesLeft);
 
 
 
