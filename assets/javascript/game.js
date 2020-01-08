@@ -1,119 +1,104 @@
- 
+
   // creates an array for computer choice
-  var computerChoices = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; 
-  // starts wins and losses at zero
-  var wins = 0;
-  var losses = 0;
-  // starts initial guess amount at 5
-  var guessesLeft= 5;
+      var letters = ["a","b","c","d","e","f","g","h","i","j","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; 
+  
+  // computer choses random letter
+      var randLetter = letters [Math.floor(Math.random() * letters.length)];
+  
+  // starts wins and losses at zero and initial guess amount at 5
+      var winCount = 0;
+      var lossCount = 0;
+      var guessesLeft= 5;
+      
+      
 
-  // Starts and resets game
-  $( "button" ).click(function() {
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    wins = 0;
-    losses = 0;
-    guessesLeft= 5;
-    console.log(computerGuess);
-  });
 
-  document.onkeyup = function(event) {
+  // vars for diplaying text HTML
+      var userGuessText = $("#userGuess-display");
+      var winsText = $("#win-display")
+      var lossesText = $("#loss-display");
+      var guessesLeftText = $("#guessesLeft-display");
+      
+      winsText.text(winCount);
+      lossesText.text(lossCount);
+      guessesLeftText.text(guessesLeft);
+      
+  
+  // Starts, creates random letter and resets game
+      $("#button").on("click", function() {
+        randLetter = letters [Math.floor(Math.random() * letters.length)];    
+        winCount = 0;
+        winsText.text(winCount);
+        lossCount = 0;
+        lossesText.text(lossCount);
+        guessesLeft= 5;
+        guessesLeftText.text(guessesLeft);
+        userGuess = [];
+        userGuessText.text(userGuess); 
+        console.log(randLetter);
+      });
 
-    var userChoiceText = document.getElementById("userchoice-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var guessesText = document.getElementById("guessesLeft-text");
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    var userGuess = event.key;
-    
-    var resetGuesses = function () {
+   // reset when letter guessed or exceeds guess limit of 5
+      function reset() {
+        randLetter = letters [Math.floor(Math.random() * letters.length)]; 
+        console.log(randLetter);
+        winsText.text(winCount);
+        lossesText.text(lossCount);
         guessesLeft = 5;
-    }
+        guessesLeftText.text(guessesLeft);
+        userGuess = [];
+        userGuessText.text(userGuess);     
+      }   
       
-
-      if (userGuess === computerGuess) {
-            wins++;
-        }
       
-      else if (userGuess != computerGuess) {
-            guessesLeft--;
-                
-            if (guessesLeft=== 0)
-                  losses++;
-                  function MyFunction() {
-                    return (this);
-                  }
+$(document).ready(function() {
+        reset();
 
+            
+
+    // user presses a key to guess letter
+    document.onkeyup = function(event) {
+      var userGuess = event.key.toLowerCase();
+      userGuessText.text(userGuess);
+
+      // changes wins and losses
+      winsText.text(winCount);
+      lossesText.text(lossCount);
+      // updates amount of guesses remaining
+      guessesLeftText.text(guessesLeft);
+      //guessesSoFarText.text(userGuess);
+
+
+                      if (userGuess === randLetter) {
+                        winCount++;
+                        console.log("correct")
+                        reset();
+                        
+                      }   
+
+                      else if (userGuess != randLetter) {
+                        guessesLeft--;
+                        console.log("wrong")
+                        guessesLeftText.text(guessesLeft);
+                        //guessedLettersText.text(guessedLetters);
+
+                                    if (guessesLeft === 0){
+                                    lossCount++;
+                                    guessesLeft = 5;
+                                    console.log("loss")
+                                    reset();
+                                    }  
+                        }     
+                    } 
+                  });        
+
+
+              
                   
-
-
-        }
-                      
-           console.log(guessesLeft);
-
-
-
-      userChoiceText.textContent = userGuess;
-      winsText.textContent =  wins;
-      lossesText.textContent =  losses;
-      guessesText.textContent =  guessesLeft;
-
-      }
-    
+              
+              
+              
  
  
  
  
- 
- 
- // letter array
-  //var letters = ['a',"b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-  // Random letter generator
-  //function getItem(){
-    //document.getElementById("letterGuess").innerHTML = letters[Math.floor(Math.random() * letters.length)];
-    //console.log(randomLetter);
-    
- // }); 
-  
-  //$("button").click (
-   // console.log("play pressed");
-  //document.onkeyup = function(event) {
-    //letterGuess.textContent = event.key.toLowerCase();{
-    // Each time the user guesses a letter the guesses remaining goes down by 1.
-    //guessesLeft -=1;
-  //}
-  
-  //if (guessesLeft === -1) {
-    //alert("You Loose!");
-  //}
-  
-  // wins++1
-  
-  // losses++1
-  
-  //var guess = event.key;
-  
- 
-
-  //document.getElementById("button").addEventListener("click", function() {
-      // Random letter generator-reset stats
-      
-  //}
-  
-  
-    
-    // If letter is correctly picked, run the following
-        //if (letterGuess === randomLetter) {
-          //  console.log("correct letter");
-            //Press play to start again
-
-    // If letter is not picked, run the following functions/methods.
-       // }else if (letterGuess == randomLetter);{
-         //   console.log("wrong!");
-          
-    //not a letter
-       // }
-    
-     
-    
-  //}
