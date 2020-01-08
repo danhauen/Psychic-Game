@@ -1,0 +1,18 @@
+.jumbotron {
+    background-image: url(https://i.pinimg.com/originals/72/4d/87/724d879c0b41139e29ffff767e95816c.jpg);
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+}
+
+#button {
+    background-color: thistle;
+    color: indigo;
+}
+
+.badge {
+    background-color: indigo;
+}
+
+.list-group-item {
+    font-family: 'Titillium Web', sans-serif;
+}
