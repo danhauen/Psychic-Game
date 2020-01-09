@@ -22,60 +22,51 @@
       var lossesText = $("#loss-display");
       var guessesLeftText = $("#guessesLeft-display");
       
-      
-      
+  // changes wins and losses
       winsText.text(winCount);
       lossesText.text(lossCount);
-      guessesLeftText.text(guessesLeft);
+  // updates amount of guesses remaining
+      guessesLeftText.text(guessesLeft);    
       
-  
-  // Starts, creates random letter and resets game
+  // resets game
       $("#button").on("click", function() {
         randLetter = letters [Math.floor(Math.random() * letters.length)];    
         winCount = 0;
-        //winsText.text(winCount);
+        winsText.text(winCount);
         lossCount = 0;
-        //lossesText.text(lossCount);
+        lossesText.text(lossCount);
         guessesLeft= 9;
-        //guessesLeftText.text(guessesLeft);
-        //guessedLetters = [];  
+        guessesLeftText.text(guessesLeft);
+        guessedLetters = [];
+        updateGuessesSoFar();  
         console.log(randLetter);
       });
 
-   // reset when letter guessed or exceeds guess limit of 5
+   // reset when letter guessed or exceeds guess limit of 9
       function reset() {
         randLetter = letters [Math.floor(Math.random() * letters.length)]; 
-        winsText.text(winCount);
-        lossesText.text(lossCount);
         guessesLeft = 9;
+        guessesLeftText.text(guessesLeft);
         console.log(randLetter);    
       }   
       
+    //--------------------------------------------------------------------------------
       
-$(document).ready(function() {
+    $(document).ready(function() {
         reset();
 
-            
-
     // user presses a key to guess letter
-      document.onkeyup = function(event) {
-        var userGuess = event.key.toLowerCase();
-    //userGuessText.text(userGuess);
-      guessedLetters.push(userGuess);
-     
-     
-    // changes wins and losses
-      winsText.text(winCount);
-      lossesText.text(lossCount);
-    // updates amount of guesses remaining
-      guessesLeftText.text(guessesLeft);
-      
-
-
+        document.onkeyup = function(event) {
+            var userGuess = event.key.toLowerCase();
+            //userGuessText.text(userGuess);
+            guessedLetters.push(userGuess);
+        
                       if (userGuess === randLetter) {
                           winCount++;
+                          winsText.text(winCount);
+                          guessedLetters = [];
+                          updateGuessesSoFar(); 
                           reset();
-
                           console.log("correct")
                       }   
 
@@ -83,19 +74,20 @@ $(document).ready(function() {
                           guessesLeft--;
                           guessesLeftText.text(guessesLeft);  
                           updateGuessesSoFar(); 
-                          console.log("wrong")
+                          console.log("incorrect")
                       }    
                                     
                       if (guessesLeft === 0){
                           lossCount++;
+                          lossesText.text(lossCount);
                           guessedLetters = [];
                           updateGuessesSoFar(); 
                           reset();
                           console.log("loss")
                       }  
                              
-                    } 
-                  });        
+            } 
+    });        
 
 
               
